@@ -1,0 +1,15 @@
+services:
+  courtmap-db:
+    image: imresamu/postgis:16-3.5-bookworm
+    environment:
+     - POSTGRES_DB
+     - POSTGRES_USER
+     - POSTGRES_PASSWORD
+    ports:
+      - "5434:5432"
+    volumes:
+      - courtmap_pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  courtmap_pgdata:
